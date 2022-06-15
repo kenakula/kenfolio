@@ -27,8 +27,8 @@ body {
   font-style: normal;
   font-weight: 400;
   font-family: $font-main;
-  color: $color-black;
-  background-color: $color-white;
+  color: var(--text-primary);
+  background-color: var(--background-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,6 +40,20 @@ main {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 25px;
 }
 
 img,
@@ -60,9 +74,9 @@ textarea {
 // если в стилях уже используется box-shadow есть другое решение -
 // задать к списку транзишенов `background-color 10000000s ease-out`
 input:-webkit-autofill {
-  box-shadow: inset 0 0 0 1000px $color-white;
+  box-shadow: inset 0 0 0 1000px var(--background-primary);
 
-  -webkit-text-fill-color: $color-black;
+  -webkit-text-fill-color: var(--text-primary);
 }
 
 // firefox placeholder \ invalid fix + ios bdrs

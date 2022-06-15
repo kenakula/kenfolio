@@ -1,0 +1,49 @@
+.skills {
+  $c: &;
+
+  &__list {
+    @include list-reset;
+
+    display: grid;
+    gap: 20px;
+    width: 100%;
+
+    @include min-tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include min-laptop {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &__item {
+    padding: 20px 15px;
+    border: 1px solid rgba($color: $color-dark-blue, $alpha: 0.1);
+    border-radius: 10px;
+  }
+
+  &__item-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+
+    svg {
+      margin-right: 25px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__item-text {
+    margin: 0;
+  }
+}

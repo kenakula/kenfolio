@@ -1,0 +1,15 @@
+include ../../data/skills.data.pug
+
+mixin skills()
+
+  section.section.section--bg-light.skills#skills
+    .container.section__inner
+      +title({text: 'Expertise'})
+      ul.skills__list
+        each item in skillsData.list
+          li.skills__item
+            .skills__item-icons
+              each icon in item.icons
+                +icon(icon)
+            h3.skills__item-title #{item.title}
+            p.skills__item-text #{item.text}

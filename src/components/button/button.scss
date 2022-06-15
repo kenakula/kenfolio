@@ -1,0 +1,47 @@
+.button {
+  @include button-reset;
+  @include font(18, 24);
+  @include transition(box-shadow);
+  @include border-radius;
+
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 5px;
+  color: $color-white;
+  background-color: $color-dark-blue;
+
+  &:hover {
+    @include min-tablet {
+      @include shadowLeft;
+    }
+  }
+
+  &--accent {
+    background-color: $color-red;
+  }
+
+  &--shadow-right {
+    &:hover {
+      @include min-tablet {
+        @include shadowRight;
+      }
+    }
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &--icon-right {
+    svg {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

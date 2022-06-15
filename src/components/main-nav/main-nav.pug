@@ -10,8 +10,8 @@
 mixin mainNav({links})
 
   nav.main-nav#main-nav&attributes(attributes)
-    +toggler({label: 'Открыть меню', targetId: 'toggler', switchableClass: 'active'})
-    ul.main-nav__list
+    //- +toggler({label: 'Открыть меню', toggleLabel: 'Закрыть меню', targetId: 'toggler', switchableClass: 'active', targetEl: 'mainNav'}).main-nav__toggler
+    ul.main-nav__list#mainNav
       each item in links
         li.main-nav__item
           a(href=item.url) !{item.name}

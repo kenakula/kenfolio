@@ -1,6 +1,10 @@
 .container {
   width: 100%;
-  max-width: $desktop;
+  max-width: $desktop-small;
   margin: 0 auto;
   padding: 0 20px;
+
+  @include min-tablet {
+    padding: 0 40px;
+  }
 }

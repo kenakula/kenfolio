@@ -1,3 +1,29 @@
 .header {
-  background: lightblue;
+  background: $color-dark-blue;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+  }
+
+  &__logo {
+    position: relative;
+    padding-right: 20px;
+    color: $color-white;
+
+    span {
+      @include font(28, 32);
+
+      font-family: $font-title;
+      font-weight: 700;
+
+      &:last-child {
+        position: absolute;
+        left: 14px;
+        top: 6px;
+      }
+    }
+  }
 }

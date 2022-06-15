@@ -1,0 +1,17 @@
+.title {
+  @include font(26, 30);
+
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+
+  &__divider {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 120%;
+    height: 2px;
+    background-color: $color-black;
+    transform: translate(-50%, -50%);
+  }
+}

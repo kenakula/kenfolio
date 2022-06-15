@@ -92,6 +92,19 @@ document.addEventListener('DOMContentLoaded', () => {
     initSomething();
 })
 ```
+
+### modals usage
+
+```pug
+  button(data-micromodal-trigger="modal-1") click1
+
+  +modal({title: 'Title1', modalId: 'modal-1'})
+    block content
+      p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, deleniti. Laboriosam quam velit quis. Culpa minus animi aliquam numquam molestiae eveniet libero, quae beatae iste hic eos sit amet quia dolorem saepe earum dolor et! Eos, sed repellendus obcaecati hic error quis eaque. Labore expedita odio accusantiu
+    block footer
+      +button({label: "continue pls"})
+```
+
 ## Authors
 
 - [@kenakula](https://github.com/kenakula)

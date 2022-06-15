@@ -1,0 +1,18 @@
+include ../../data/hero.data.pug
+
+mixin hero()
+
+  section.section.hero#hero
+    .container.hero__inner
+      .hero__img-container
+        +imgSvg(heroData.avatar).hero__avatar
+      .hero__text
+        h2.hero__title Hi, I'm Kenan
+        p front-end developer
+        span.hero__divider
+        p.hero__subtitle Specialized in creating sleek and comfortable user interfaces.
+      .hero__actions
+        +button({isLink: true, label: 'Selected Works'}).hero__btn
+          +icon({name: 'icon-arrow-down', width: 16, height: 16})
+        +button({isLink: true, label: 'Download CV', accent: "true", shadowRight: "true"}).hero__btn.hero__btn--download.hero__btn--shadow-right
+

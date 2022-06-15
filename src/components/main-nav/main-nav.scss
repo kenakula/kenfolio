@@ -1,0 +1,54 @@
+.main-nav {
+  $c: &;
+
+  display: flex;
+  margin-left: auto;
+
+  &__list {
+    @include list-reset;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    &::before {
+      @include pseudo;
+      @include transition(transform);
+
+      display: none;
+      bottom: 2px;
+      width: 120%;
+      height: 10px;
+      background-color: rgba($color: $color-light-blue, $alpha: 0.3);
+      transform: scale(0);
+      transform-origin: bottom left;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      position: relative;
+      color: $color-white;
+    }
+
+    @include min-tablet {
+      &::before {
+        display: block;
+      }
+
+      &:hover {
+        &::before {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+//- {
+//-   isLink: boolean;
+//-   url?: string;
+//-   label: string;
+//-   buttonId?: string;
+//-   endIcon?: boolean;
+//-   accent?: boolean;
+//-   shadowRight?: boolean;
+//- }
+
+mixin button(data)
+  - const {isLink, url, label, buttonId, endIcon, accent, shadowRight} = data;
+
+
+  if isLink
+    a.button(href=url, class={'button--accent': accent === 'true', 'button--icon-right': endIcon === 'true', 'button--shadow-right': shadowRight === 'true'}, id=buttonId)&attributes(attributes)
+      block
+      | !{label}
+  else
+    button.button(id=buttonId, class={'button--accent': accent === 'true', 'button--icon-right': endIcon === 'true', 'button--shadow-right': shadowRight === 'true'})&attributes(attributes)
+      block
+      | !{label}

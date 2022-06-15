@@ -4,10 +4,29 @@ $color-black: #000000;
 $color-white: #ffffff;
 $color-transparent: rgba(255, 255, 255, 0);
 
+$color-dark-blue: #023047;
+$color-blue: #219ebc;
+$color-light-blue: #65c9ff;
+$color-yellow: #ffb703;
+$color-orange: #fb8500;
+$color-red: #e63946;
+$color-light: #f9fbf8;
+
+:root {
+  --text-primary: #000000;
+  --background-primary: #ffffff;
+}
+
+html[theme="dark"] {
+  --text-primary: #ffffff;
+  --background-primary: #000000;
+}
+
 // Typography
 //---------------------------------
 
-$font-main: "placeholder", "montserrat", sans-serif;
+$font-main: "comfortaa", "montserrat", sans-serif;
+$font-title: "roboto", "arial", sans-serif;
 
 // Animation
 //---------------------------------
@@ -22,6 +41,7 @@ $default-transition-settings: $default-transition-duration $default-transition-e
 $mobile-small: 320px;
 $tablet: 768px;
 $laptop: 1024px;
+$desktop-small: 1280px;
 $desktop: 1440px;
 $desktop-wide: 1920px;
 

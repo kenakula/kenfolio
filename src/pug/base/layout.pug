@@ -5,7 +5,6 @@ block data
   - const pageDescription = 'Page description';
 
 block variables
-  - let mainPage = true;
 
 doctype html
 html(class="no-js" lang="ru")
@@ -53,7 +52,7 @@ html(class="no-js" lang="ru")
   body
     noscript У вас отключен JavaScript. Это пугает.
     +sprite()
-    +header(mainPage)
+    +header()
     main
       block main
     +footer()
