@@ -1,18 +1,20 @@
 include ../../data/hero.data.pug
 
 mixin hero()
+  - const {avatar, texts: {title, subtitle, small, downLoadBtn, worksBtn}} = heroData;
 
   section.section.hero#hero
     .container.hero__inner
       .hero__img-container
-        +imgSvg(heroData.avatar).hero__avatar
+        +imgSvg(avatar).hero__avatar
       .hero__text
-        h2.hero__title Hi, I'm Kenan
-        p front-end developer
+        h2.hero__title !{title[pageLang]}
+        p !{small[pageLang]}
         span.hero__divider
-        p.hero__subtitle Specialized in creating sleek and comfortable user interfaces.
+        p.hero__subtitle !{subtitle[pageLang]}
       .hero__actions
-        +button({isLink: true, label: 'Selected Works'}).hero__btn
+        +button({isLink: true, label: downLoadBtn[pageLang]}).hero__btn
           +icon({name: 'icon-arrow-down', width: 16, height: 16})
-        +button({isLink: true, label: 'Download CV', accent: "true", shadowRight: "true"}).hero__btn.hero__btn--download.hero__btn--shadow-right
+        +button({isLink: true, label: worksBtn[pageLang], accent: "true", shadowRight: "true"}).hero__btn.hero__btn--download.hero__btn--shadow-right
+
 

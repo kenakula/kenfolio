@@ -1,13 +1,14 @@
 include mixins
 
 block data
+
+block variables
+  - const pageLang = 'ru';
   - const title = 'Document';
   - const pageDescription = 'Page description';
 
-block variables
-
 doctype html
-html(class="no-js" lang="ru")
+html(class="no-js" lang=pageLang)
   head
     title !{title}
     meta(charset="utf-8")

@@ -1,15 +1,16 @@
 include ../../data/skills.data.pug
 
 mixin skills()
+  - const {list, title} = skillsData;
 
   section.section.section--bg-light.skills#skills
     .container.section__inner
-      +title({text: 'Expertise'})
+      +title({text: title[pageLang]})
       ul.skills__list
-        each item in skillsData.list
+        each item in list
           li.skills__item
             .skills__item-icons
               each icon in item.icons
                 +icon(icon)
-            h3.skills__item-title #{item.title}
-            p.skills__item-text #{item.text}
+            h3.skills__item-title !{item.title}
+            p.skills__item-text !{item.text}

@@ -1,6 +1,16 @@
+include ../../data/works.data.pug
+
 mixin works()
+  - const {title, list} = worksData;
 
   section.section.works
     .container.section__inner
-      +title({text: 'Works'})
+      +title({text: title[pageLang]})
       ul.works__list
+        each item in list
+          - const {title, description, images: {thumbnail, list}} = item;
+          li.works__item
+            .works__item-image
+              +img(thumbnail)
+            h3.works__item-title !{title}
+            p.works__item-description !{description[pageLang]}
