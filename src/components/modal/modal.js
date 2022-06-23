@@ -1,7 +1,11 @@
-import MicroModal from 'micromodal';
-
 export const initModals = () => {
   const body = document.querySelector('body');
+  const header = body.querySelector('[data-header]');
+  const modals = document.querySelectorAll('[data-modal]');
+
+  if (!modals.length) {
+    return;
+  }
 
   const getScrollbarWidth = () => {
     const outer = document.createElement('div');
@@ -19,31 +23,19 @@ export const initModals = () => {
     return scrollbarWidth;
   };
 
-  const getBodyScrollTop = () =>
-    self.pageYOffset ||
-    (document.documentElement && document.documentElement.ScrollTop) ||
-    (body && body.scrollTop);
-
   const disableScrolling = () => {
     const scrollWidth = getScrollbarWidth();
-    body.setAttribute('style', `padding-right: ${scrollWidth}px;`);
-    body.dataset.scrollY = `${getBodyScrollTop()}`;
-    body.style.top = `-${body.dataset.scrollY}px`;
-    body.classList.add('scroll-lock');
+    header.setAttribute('style', `padding-right: ${scrollWidth}px;`);
   };
 
   const enableScrolling = () => {
-    body.removeAttribute('style');
-    body.classList.remove('scroll-lock');
-    window.scrollTo(0, +body.dataset.scrollY);
+    header.removeAttribute('style');
   };
 
-  MicroModal.init({
-    onShow: () => disableScrolling(),
-    onClose: () => enableScrolling(),
-    disableFocus: false,
-    awaitOpenAnimation: false,
-    awaitCloseAnimation: true,
-    debugMode: false,
+  const myModal = new HystModal({
+    linkAttributeName: 'data-hystmodal',
+    waitTransitions: true,
+    beforeOpen: () => disableScrolling(),
+    afterClose: () => enableScrolling(),
   });
 };

@@ -1,0 +1,13 @@
+.slider {
+  $c: &;
+
+  &__wrapper {
+    align-items: center;
+  }
+
+  &__img-container {
+    img {
+      width: 100%;
+    }
+  }
+}

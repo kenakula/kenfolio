@@ -2,7 +2,7 @@ include ../../data/header.data.pug
 
 mixin header()
 
-  header.header&attributes(attributes)
+  header.header(data-header)&attributes(attributes)
     .header__inner.container
       a.header__logo(href="/")
         span K

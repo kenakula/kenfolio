@@ -1,18 +1,24 @@
-mixin modal(data)
-  - const {title, modalId} = data;
+- // TODO интерфейс
 
-  .modal(aria-hidden="true" id=modalId)
-    .modal__overlay(data-micromodal-close tabindex="-1")
-      .modal__container(
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-1-title")
+mixin modal(data)
+  - const {modalId, title, link, repo, list, techs} = data;
+
+  .modal.hystmodal(id=modalId, aria-hidden='true', data-modal)
+    .hystmodal__wrap.modal__wrap
+      .hystmodal__window.modal__window(role='dialog', aria-modal='true', aria-labelledby=`${modalId}-title`)
         header.modal__header
-          h2.modal__title(id=`${modalId}-title`) !{title}
-          button.modal__close(aria-label="Close modal" data-micromodal-close)
-            +icon({name: 'icon-close', width: 30, height: 30})
+          h3(id=`${modalId}-title`) !{title}
+          button.modal__close(data-hystclose)
+            +icon({name: 'icon-close', width: 20, height: 20})
         .modal__content
-          block content
-        block footer
-          footer.modal__footer
-            +button({label: "continue"})
+          +slider({slides: list}).modal__slider
+          .modal__techs
+            each item in techs
+              +badge({text: item})
+          block
+        footer.modal__footer
+          a.modal__link(href=link, aria-label='site link', target='_blank', rel='noreferrer')
+            +icon({name: 'icon-view', width: 30, height: 30})
+          a.modal__link(href=repo, aria-label='repo link', target='_blank', rel='noreferrer')
+            +icon({name: 'icon-github', width: 30, height: 30})
+

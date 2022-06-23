@@ -1,0 +1,9 @@
+- // TODO интерфейс
+
+mixin badge({text, color})
+  span.badge(class={
+    'badge--red': color === 'red',
+    'badge--blue': color === 'blue',
+    'badge--yellow': color === 'yellow',
+    'badge--orange': color === 'orange',
+  }) !{text}

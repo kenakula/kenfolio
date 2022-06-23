@@ -1,11 +1,20 @@
 extends ../base/layout
 
+
+
 block variables
   - const mainPage = false
   - const pageLang = 'ru';
+  - const title = 'Kenan Agaev';
+  - const pageDescription = 'Сайт-портфолио фронтенд разработчика. Агаев Кенан, фронтент разработчик из Санкт-Петербурга.';
 
 block main
   h1.visually-hidden Kenan Agaev, front-end developer from Sain-Petersburg. Creating user interfaces with the help of React, Angular and native HTML5/CSS3
   +hero()
   +skills()
   +works()
+
+  each item in worksData.list
+    - const {title, description, id, images: {thumbnail, list}, link, repo, techs} = item;
+
+    +modal({modalId: id, title, link, repo, list, techs})

@@ -31,7 +31,7 @@ $font-title: "roboto", "arial", sans-serif;
 // Animation
 //---------------------------------
 
-$default-transition-duration: 0.2s;
+$default-transition-duration: 0.3s;
 $default-transition-easing: ease;
 $default-transition-settings: $default-transition-duration $default-transition-easing;
 
@@ -50,3 +50,8 @@ $desktop-wide: 1920px;
 
 $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
+
+// Layers
+// --------------------------------
+
+$header-layer: 10;

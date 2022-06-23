@@ -69,6 +69,6 @@
     ]
   },
   "dependencies": {
-    "micromodal": "^0.4.10"
+    "swiper": "^8.2.4"
   }
 }

@@ -1,0 +1,15 @@
+- // TODO интерфейс
+
+mixin slider(data)
+  - const {slides} = data;
+
+  .slider&attributes(attributes)
+    .slider__swiper.swiper(data-swiper)
+      .swiper-wrapper.slider__wrapper
+        each slide in slides
+          .swiper-slide.slider__slide
+            .slider__img-container
+              +picture(slide)
+      //- .swiper-scrollbar.slider__scrollbar
+      //- .swiper-button-prev.slider__btn.slider__btn--prev
+      //- .swiper-button-next.slider__btn.slider__btn--next

@@ -44,6 +44,8 @@
   }
 
   &__item-text {
+    @include font(16, 24);
+
     margin: 0;
   }
 }

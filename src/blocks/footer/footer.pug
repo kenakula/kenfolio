@@ -1,4 +1,14 @@
-mixin footer()
+include ../../data/footer.data.pug
 
-  footer.footer&attributes(attributes)
-    .footer__inner.container footer
+mixin footer()
+  - const {title, subtitle, list} = footerData;
+
+  footer.footer.section.section--bg-light#contact&attributes(attributes)
+    .section__inner.container
+      +title({text: title[pageLang]})
+      p.footer__subtitle !{subtitle[pageLang]}
+      ul.footer__list
+        each item in list
+          li.footer__item
+            a.footer__link(href=item.link, aria-label=item.name, target="_blank", rel="noreferrer")
+              +icon(item.icon)

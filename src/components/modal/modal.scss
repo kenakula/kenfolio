@@ -1,154 +1,116 @@
 .modal {
-  display: none;
+  $c: &;
 
-  &__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__wrap {
     padding: 20px;
-    background: rgba($color-black, 0.6);
   }
 
-  &__container {
-    padding: 20px;
+  &__window {
     width: 100%;
-    max-width: 500px;
     border-radius: 10px;
-    background-color: $color-white;
+    transform: scale(1);
+
+    @include min-laptop {
+      width: 70%;
+    }
+
+    @include min-desktop {
+      width: 50%;
+    }
   }
 
   &__header {
+    position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
-    padding: 0 30px;
-  }
+    align-items: center;
+    padding: 20px 40px;
 
-  &__title {
-    @include font(32, 36);
+    &::after {
+      @include pseudo;
 
-    margin: 0;
+      bottom: -30px;
+      height: 30px;
+      width: 100%;
+      background: linear-gradient(0deg, $color-transparent, $color-white);
+    }
+
+    h3 {
+      @include font(28, 34);
+
+      margin: 0;
+    }
   }
 
   &__close {
     @include button-reset;
 
     position: absolute;
-    right: 17px;
-    top: 17px;
-    display: flex;
-    align-items: center;
-    color: $color-black;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 
     &::before {
       @include pseudo;
 
-      left: -5px;
-      top: -5px;
-      bottom: -5px;
-      right: -5px;
+      left: -10px;
+      top: -10px;
+      bottom: -10px;
+      right: -10px;
+    }
+
+    svg {
+      display: block;
+    }
+
+    @include min-tablet {
+      @include interactive-opacity;
+    }
+
+    @include min-laptop {
+      right: -40px;
+      top: 15px;
+      color: $color-white;
     }
   }
 
   &__content {
-    margin-bottom: 30px;
-    padding-right: 10px;
+    padding: 20px 0;
     max-height: 60vh;
     overflow-y: auto;
   }
 
-  &__btn {
-    font-size: 0.875rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    background-color: #e6e6e6;
-    color: rgba(0, 0, 0, 0.8);
-    border-radius: 0.25rem;
-    border-style: none;
-    border-width: 0;
-    cursor: pointer;
-    -webkit-appearance: button;
-    text-transform: none;
-    overflow: visible;
-    line-height: 1.15;
-    margin: 0;
-    will-change: transform;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    transition: -webkit-transform 0.25s ease-out;
-    transition: transform 0.25s ease-out;
-    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+  &__slider {
+    margin-bottom: 20px;
   }
 
-  &.is-open {
-    display: block;
+  &__techs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
-}
 
-.modal[aria-hidden="false"] .modal__overlay {
-  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.modal[aria-hidden="false"] .modal__container {
-  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.modal[aria-hidden="true"] .modal__overlay {
-  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.modal[aria-hidden="true"] .modal__container {
-  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.modal .modal__container,
-.modal .modal__overlay {
-  will-change: transform;
-}
-
-@keyframes mmfadeIn {
-  from {
-    opacity: 0;
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
   }
-  to {
-    opacity: 1;
-  }
-}
 
-@keyframes mmfadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
+  &__link {
+    @include transition(color);
 
-@keyframes mmslideIn {
-  from {
-    transform: translateY(15%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
+    display: flex;
+    align-items: center;
+    color: rgba($color: $color-black, $alpha: 0.7);
 
-@keyframes mmslideOut {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-10%);
+    @include min-tablet {
+      &:hover {
+        color: $color-black;
+      }
+    }
   }
 }

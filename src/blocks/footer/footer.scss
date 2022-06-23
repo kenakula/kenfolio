@@ -1,3 +1,31 @@
 .footer {
-  background: lightcoral;
+  $c: &;
+
+  &__subtitle {
+    @include font(14, 24);
+
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 60%;
+  }
+
+  &__list {
+    @include list-reset;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  &__item {
+    svg {
+      display: block;
+    }
+
+    @include min-tablet {
+      &:hover {
+        @include interactive-opacity;
+      }
+    }
+  }
 }
