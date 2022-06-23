@@ -1,9 +1,8 @@
 // import modules
 
-import { initModals } from '../components/modal/modal';
-import { initSliders } from '../components/slider/slider';
-import { initAnchorsScroll } from './modules/init-anchors-scroll';
-import { initPage } from './modules/init-page';
+import { initModals, initSliders } from '../components';
+import { initAnchorsScroll } from './modules';
+import { initPage } from './modules';
 
 document.addEventListener('DOMContentLoaded', () => {
   initPage();
