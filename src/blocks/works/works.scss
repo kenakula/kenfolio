@@ -19,6 +19,8 @@
   &__item {
     @include border-radius;
 
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
     padding: 20px;
     cursor: pointer;
@@ -40,11 +42,19 @@
         margin-right: 0;
       }
 
+      &:last-child {
+        margin-right: 0;
+      }
+
       &:hover {
         transform: translateY(-5px);
         box-shadow: 0 125px 80px rgb(23 58 105 / 7%), 0 81.0185px 46.8519px rgb(23 58 105 / 5%),
           0 48.1481px 25.4815px rgb(23 58 105 / 4%), 0 25px 13px rgb(23 58 105 / 4%),
           0 10.1852px 6.51852px rgb(23 58 105 / 3%), 0 2.31481px 3.14815px rgb(23 58 105 / 2%);
+
+        #{$c}__item-header svg {
+          opacity: 0.5;
+        }
       }
     }
 
@@ -54,13 +64,46 @@
     }
   }
 
+  &__item-header {
+    position: relative;
+
+    svg {
+      @include transition(opacity);
+
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.5;
+    }
+
+    @include min-tablet {
+      svg {
+        opacity: 0;
+      }
+    }
+  }
+
   &__item-title {
-    @include font(22, 26);
+    @include font(32, 40);
 
     margin-bottom: 15px;
-    text-transform: uppercase;
-    font-family: $font-title;
     text-align: center;
+    font-weight: 400;
+  }
+
+  &__item-description {
+    margin-bottom: auto;
+    text-align: center;
+  }
+
+  &__techs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   &__item-image {

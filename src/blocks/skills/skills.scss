@@ -11,10 +11,6 @@
     @include min-tablet {
       grid-template-columns: 1fr 1fr;
     }
-
-    @include min-laptop {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
   }
 
   &__item {
@@ -47,5 +43,6 @@
     @include font(16, 24);
 
     margin: 0;
+    text-align: center;
   }
 }

@@ -1,6 +1,16 @@
 .slider {
   $c: &;
 
+  &__swiper {
+    mask-image: linear-gradient(
+      to right,
+      $color-transparent 1%,
+      $color-black 10%,
+      $color-black 90%,
+      $color-transparent 99%
+    );
+  }
+
   &__wrapper {
     align-items: center;
   }

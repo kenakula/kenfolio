@@ -13,8 +13,9 @@ mixin modal(data)
         .modal__content
           +slider({slides: list}).modal__slider
           .modal__techs
-            each item in techs
-              +badge({text: item})
+            each tech in techs
+              - const {text, color} = tech;
+              +badge({text, color})
           block
         footer.modal__footer
           a.modal__link(href=link, aria-label='site link', target='_blank', rel='noreferrer')

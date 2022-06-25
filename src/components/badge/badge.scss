@@ -11,6 +11,11 @@
     color: $color-white;
   }
 
+  &--dark {
+    background-color: $color-dark-blue;
+    color: $color-white;
+  }
+
   &--yellow {
     background-color: $color-yellow;
     color: $color-white;

@@ -4,6 +4,8 @@ mixin badge({text, color})
   span.badge(class={
     'badge--red': color === 'red',
     'badge--blue': color === 'blue',
+    'badge--dark': color === 'dark',
     'badge--yellow': color === 'yellow',
     'badge--orange': color === 'orange',
+    'badge--light': color === 'light',
   }) !{text}

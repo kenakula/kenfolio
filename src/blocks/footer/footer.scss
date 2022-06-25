@@ -14,7 +14,7 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+    gap: 20px;
   }
 
   &__item {
@@ -25,6 +25,16 @@
     @include min-tablet {
       &:hover {
         @include interactive-opacity;
+      }
+    }
+  }
+
+  &__link {
+    @include transition(opacity);
+
+    @include min-tablet {
+      &:hover {
+        opacity: 0.7;
       }
     }
   }

@@ -11,6 +11,9 @@ export const initSliders = () => {
     const swiperInst = new Swiper(slider, {
       slidesPerView: 1.3,
       spaceBetween: 20,
+      centeredSlides: true,
+      slidePrevClass: 'slider__slide--prev',
+      slideNextClass: 'slider__slide--next',
     });
   });
 };

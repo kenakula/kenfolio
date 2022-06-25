@@ -3,12 +3,15 @@
 
   &__wrap {
     padding: 20px;
+    background-color: rgba($color: $color-black, $alpha: 0.6);
+    backdrop-filter: blur(2px);
   }
 
   &__window {
     width: 100%;
     border-radius: 10px;
     transform: scale(1);
+    background: $color-transparent;
 
     @include min-laptop {
       width: 70%;
@@ -25,15 +28,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px 40px;
-
-    &::after {
-      @include pseudo;
-
-      bottom: -30px;
-      height: 30px;
-      width: 100%;
-      background: linear-gradient(0deg, $color-transparent, $color-white);
-    }
+    color: $color-white;
 
     h3 {
       @include font(28, 34);
@@ -49,6 +44,15 @@
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+    color: $color-white;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible::before {
+      outline: 1px solid rgba($color: $color-white, $alpha: 0.4);
+    }
 
     &::before {
       @include pseudo;
@@ -70,7 +74,6 @@
     @include min-laptop {
       right: -40px;
       top: 15px;
-      color: $color-white;
     }
   }
 
@@ -90,11 +93,17 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin: 0 auto;
+    max-width: 80%;
+
+    @include min-tablet {
+      max-width: 60%;
+    }
   }
 
   &__footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 15px;
     padding: 20px;
@@ -103,13 +112,31 @@
   &__link {
     @include transition(color);
 
+    position: relative;
     display: flex;
     align-items: center;
-    color: rgba($color: $color-black, $alpha: 0.7);
+    color: rgba($color: $color-white, $alpha: 1);
+
+    &::before {
+      @include pseudo;
+
+      left: -5px;
+      top: -5px;
+      bottom: -5px;
+      right: -5px;
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      &::before {
+        outline: 1px solid rgba($color: $color-white, $alpha: 0.5);
+      }
+    }
 
     @include min-tablet {
       &:hover {
-        color: $color-black;
+        color: rgba($color: $color-white, $alpha: 0.7);
       }
     }
   }
