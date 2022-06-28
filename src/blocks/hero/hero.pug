@@ -13,8 +13,7 @@ mixin hero()
         span.hero__divider
         p.hero__subtitle !{subtitle[pageLang]}
       .hero__actions
-        +button({isLink: true, url: '#contact', label: downLoadBtn[pageLang]}).hero__btn
+        +button({isLink: true, url: '#contacts', label: downLoadBtn[pageLang]}).hero__btn
           +icon({name: 'icon-arrow-down', width: 16, height: 16})
-        +button({isLink: true, url: '#works', label: worksBtn[pageLang], accent: "true", shadowRight: "true"}).hero__btn.hero__btn--download.hero__btn--shadow-right
 
 

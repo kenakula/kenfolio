@@ -1,0 +1,53 @@
+.lang-select {
+  @include font(18, 22);
+
+  position: relative;
+  color: $color-white;
+  font-family: $font-title;
+
+  &__value {
+    @include interactive-opacity;
+
+    border-bottom: 1px dashed $color-white;
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    @include transition(opacity);
+    @include list-reset;
+
+    position: absolute;
+    right: 0;
+    bottom: -80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba($color: $color-black, $alpha: 0.1);
+    background-color: $color-white;
+    box-shadow: 0 2px 10px rgba($color: $color-black, $alpha: 0.4);
+    opacity: 0;
+    pointer-events: none;
+
+    &--active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__option {
+    @include interactive-opacity;
+
+    margin-bottom: 5px;
+    color: $color-black;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--disabled {
+      opacity: 0.4;
+      cursor: initial;
+      pointer-events: none;
+    }
+  }
+}

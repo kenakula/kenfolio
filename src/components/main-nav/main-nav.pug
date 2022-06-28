@@ -1,22 +1,15 @@
-//- {
-//-   links: [
-//-     {
-//-       ru: {
-//-         url: string;
-//-         name: string;
-//-       },
-//-       eng: {
-//-         url: string;
-//-         name: string;
-//-       }
-//-     }
-//-   ]
-//- }
+include ../../data/main-nav.data.pug
 
-mixin mainNav({links})
+mixin mainNav()
 
   nav.main-nav#main-nav&attributes(attributes)
     ul.main-nav__list#mainNav
-      each item in links
+      each item in mainNavData.links
+        -
+          const linkClass = {
+            'main-nav__link--red': item.color === 'red',
+            'main-nav__link--blue': item.color === 'blue',
+            'main-nav__link--orange': item.color === 'orange',
+          }
         li.main-nav__item
-          a(href=item[pageLang].url) !{item[pageLang].name}
+          a.main-nav__link(href=item[pageLang].url, class=linkClass) !{item[pageLang].name}

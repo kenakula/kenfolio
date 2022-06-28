@@ -1,8 +1,6 @@
 .hero {
   $c: &;
 
-  padding-top: 120px;
-
   &__inner {
     display: flex;
     flex-direction: column;

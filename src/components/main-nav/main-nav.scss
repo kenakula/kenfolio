@@ -1,53 +1,78 @@
 .main-nav {
   $c: &;
 
+  z-index: $nav-layer;
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
+  justify-content: center;
   margin-left: auto;
+  padding: 20px;
+  width: 100%;
+  background-color: $color-white;
 
   &__list {
     @include list-reset;
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 450px;
   }
 
   &__item {
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @include font(18, 24);
+
     position: relative;
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+    font-weight: 600;
 
     &::before {
       @include pseudo;
       @include transition(transform);
 
-      display: none;
-      bottom: 2px;
-      width: 120%;
-      height: 10px;
-      background-color: rgba($color: $color-light-blue, $alpha: 0.3);
+      bottom: -5px;
+      left: 0;
+      height: 4px;
+      width: 110%;
+      background-color: currentColor;
+      transform-origin: left top;
       transform: scale(0);
-      transform-origin: bottom left;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    a {
-      position: relative;
-      color: $color-white;
+      opacity: 0.7;
     }
 
     @include min-tablet {
-      &::before {
-        display: block;
-      }
-
       &:hover {
         &::before {
           transform: scale(1);
         }
+      }
+    }
+
+    &--red {
+      color: $color-red;
+    }
+
+    &--orange {
+      color: $color-orange;
+    }
+
+    &--blue {
+      color: $color-light-blue;
+    }
+
+    &--active {
+      &::before {
+        transform: scale(1);
       }
     }
   }

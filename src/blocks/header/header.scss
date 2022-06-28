@@ -1,9 +1,4 @@
 .header {
-  position: fixed;
-  z-index: $header-layer;
-  top: 0;
-  left: 0;
-  right: 0;
   background: $color-dark-blue;
 
   &__inner {
@@ -30,5 +25,9 @@
         top: 6px;
       }
     }
+  }
+
+  &__lang-select {
+    margin-left: auto;
   }
 }

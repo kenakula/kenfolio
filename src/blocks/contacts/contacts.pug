@@ -1,0 +1,14 @@
+include ../../data/contacts.data.pug
+
+mixin contacts()
+  - const {title, subtitle, list} = contactsData;
+
+  section.contacts.section.section--bg-light#contacts&attributes(attributes)
+    .section__inner.container
+      +title({text: title[pageLang]})
+      p.contacts__subtitle !{subtitle[pageLang]}
+      ul.contacts__list
+        each item in list
+          li.contacts__item
+            a.contacts__link(href=item.link, aria-label=item.name, target="_blank", rel="noreferrer")
+              +icon(item.icon)

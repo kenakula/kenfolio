@@ -1,0 +1,11 @@
+mixin langSelect()
+
+  .lang-select(data-lang-select)&attributes(attributes)
+    .lang-select__value(data-lang-toggler, data-toggled-class="lang-select__dropdown--active")
+      span(data-lang-value) !{pageLang}
+    ul.lang-select__dropdown(data-lang-dropdown)
+      li.lang-select__option(data-lang-option, class={'lang-select__option--disabled': pageLang === 'ru'})
+        a(href="index.html") Русский
+      li.lang-select__option(data-lang-option, class={'lang-select__option--disabled': pageLang === 'en'})
+        a(href="index-en.html") English
+

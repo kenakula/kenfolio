@@ -1,5 +1,3 @@
-include ../../data/header.data.pug
-
 mixin header()
 
   header.header(data-header)&attributes(attributes)
@@ -7,4 +5,4 @@ mixin header()
       a.header__logo(href="/")
         span K
         span A
-      +mainNav({links: headerData.links})
+      +langSelect().header__lang-select

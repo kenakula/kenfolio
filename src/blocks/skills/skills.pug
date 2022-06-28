@@ -13,4 +13,4 @@ mixin skills()
               each icon in item.icons
                 +icon(icon)
             h3.skills__item-title !{item.title}
-            p.skills__item-text !{item.text}
+            p.skills__item-text !{item.text[pageLang]}
