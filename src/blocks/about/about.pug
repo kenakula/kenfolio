@@ -1,0 +1,8 @@
+include ../../data/about.data.pug
+
+mixin about()
+  - const {title} = aboutData;
+
+  section.section.about#about
+    .container.section__inner
+      +title({text: title[pageLang]})
