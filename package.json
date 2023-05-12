@@ -69,7 +69,6 @@
     ]
   },
   "dependencies": {
-    "firebase": "^9.8.4",
     "swiper": "^8.2.4"
   }
 }
