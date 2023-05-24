@@ -1,3 +1,11 @@
 .about {
   $c: &;
+
+  &__text {
+    text-align: center;
+
+    @include min-laptop {
+      max-width: 70%;
+    }
+  }
 }

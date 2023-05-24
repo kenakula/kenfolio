@@ -1,8 +1,10 @@
 include ../../data/about.data.pug
 
 mixin about()
-  - const {title} = aboutData;
+  - const {title, text} = aboutData;
 
   section.section.about#about
     .container.section__inner
       +title({text: title[pageLang]})
+      p.about__text !{text[pageLang]}
+
