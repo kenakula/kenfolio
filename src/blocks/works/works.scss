@@ -6,16 +6,16 @@
   &__list {
     @include list-reset;
     width: 100%;
+    display: grid;
+    row-gap: 20px;
 
     @include min-tablet {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      row-gap: 20px;
+      row-gap: 40px;
       column-gap: 20px;
     }
 
     @include min-desktop {
-      row-gap: 40px;
       column-gap: 40px;
     }
   }
